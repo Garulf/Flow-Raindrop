@@ -1,0 +1,12 @@
+{
+    "ID": "B9B8174812E4474D96C148317BE2BFB7",
+    "ActionKeyword": "rd",
+    "Name": "FlowRaindrop",
+    "Description": "Access Raindrop.io bookmarks with Flow Launcher/Wox",
+    "Author": "Garulf",
+    "Version": "0.0.1",
+    "Language": "python",
+    "Website": "https://github.com/Garulf/flow-raindrop",
+    "IcoPath": "./icon.png",
+    "ExecuteFileName": "run.py"
+}

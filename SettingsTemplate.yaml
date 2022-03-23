@@ -1,0 +1,14 @@
+body:
+  - type: input
+    attributes:
+      name: api_token
+      label: 'API Token:'
+      defaultValue: ""
+  - type: dropdown
+    attributes:
+      name: default_collection
+      label: 'Default Collection Scope:'
+      defaultValue: 'All Collections'
+      options:
+        - All Collections
+        - Unsorted
