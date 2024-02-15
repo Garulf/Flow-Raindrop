@@ -120,3 +120,5 @@ flox
 
 .vscode/
 bin/
+
+.history/
