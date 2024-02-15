@@ -1,4 +1,3 @@
-Flox-lib==0.11.5
+pyflowlauncher==0.8.3.dev0
 python-raindropio==0.0.4
-requests[use_chardet_on_py3]==2.27.1
-
+requests==2.31.0
