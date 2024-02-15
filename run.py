@@ -6,7 +6,7 @@ sys.path.append(plugindir)
 sys.path.append(os.path.join(plugindir, "lib"))
 sys.path.append(os.path.join(plugindir, "plugin"))
 
-from plugin.main import FlowRainDrop
 
 if __name__ == "__main__":
-    FlowRainDrop()
+    from plugin.main import plugin
+    plugin.run()

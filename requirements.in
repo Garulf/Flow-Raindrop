@@ -1,3 +1,4 @@
 pyflowlauncher[all]
 python-raindropio
 requests
+requests-cache
