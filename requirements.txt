@@ -1,4 +1,2 @@
 pyflowlauncher[all]==0.8.3.dev0
-python-raindropio==0.0.4
-requests==2.31.0
-requests-cache==1.1.1
+hishel==0.0.24
