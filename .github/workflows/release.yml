@@ -10,7 +10,7 @@ on:
       - README.md
       - assets/*
 env:
-  PYTHON_VER: 3.8
+  PYTHON_VER: 3.11
 jobs:
   deps:
     if: ${{ github.ref == 'refs/heads/main' }}
