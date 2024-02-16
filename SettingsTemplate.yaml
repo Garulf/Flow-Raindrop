@@ -6,9 +6,15 @@ body:
       defaultValue: ""
   - type: dropdown
     attributes:
-      name: default_collection
-      label: 'Default Collection Scope:'
-      defaultValue: 'All Collections'
+      name: cache_ttl
+      label: 'Cache duration:'
+      defaultValue: '5 minutes'
       options:
-        - All Collections
-        - Unsorted
+        - '5 minutes'
+        - '15 minutes'
+        - '30 minutes'
+        - '1 hour'
+        - '6 hours'
+        - '12 hours'
+        - '1 day'
+        - '3 days'
