@@ -80,3 +80,17 @@ def test_context_menu_opens_raindrop_and_clears_cache():
     assert second["Title"] == "Clear cached data"
     assert second["JsonRPCAction"]["Method"] == "clear_cache"
     assert second["JsonRPCAction"]["Parameters"] == []
+
+
+def test_cache_ttl_setting(settings):
+    settings["cache_ttl"] = "1 day"
+    assert main.cache_ttl() == 86400
+    settings["cache_ttl"] = "unknown"
+    assert main.cache_ttl() == main.DEFAULT_CACHE_TTL
+    del settings["cache_ttl"]
+    assert main.cache_ttl() == main.DEFAULT_CACHE_TTL
+
+
+def test_query_without_cache_ttl_setting(settings, api):
+    del settings["cache_ttl"]
+    assert [r["Title"] for r in run_query("python")] == [item["title"] for item in ITEMS]

@@ -31,7 +31,7 @@ plugin = Plugin()
 
 
 def cache_ttl() -> int:
-    return CACHE_TTL[plugin.settings.get("cache_ttl", DEFAULT_CACHE_TTL)]
+    return CACHE_TTL.get(plugin.settings.get("cache_ttl"), DEFAULT_CACHE_TTL)
 
 
 def raindrop() -> Raindrop:
