@@ -1,0 +1,21 @@
+{
+  "keyword": "rd",
+  "query": "python",
+  "icon": "../../data/icon.png",
+  "max_results": 2,
+  "selection": 0,
+  "results": [
+    {
+      "title": "Open Raindrop.io",
+      "subtitle": "Open Raindrop.io in your browser",
+      "icon": "https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/Flow.Launcher/Images/Link.png?raw=true"
+    },
+    {
+      "title": "Clear cached data",
+      "subtitle": "All cached data will be removed",
+      "icon": "https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/Flow.Launcher/Images/recyclebin.png?raw=true"
+    }
+  ],
+  "query_suggestion": "",
+  "show_caret": false
+}
