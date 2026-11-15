@@ -94,3 +94,9 @@ def test_cache_ttl_setting(settings):
 def test_query_without_cache_ttl_setting(settings, api):
     del settings["cache_ttl"]
     assert [r["Title"] for r in run_query("python")] == [item["title"] for item in ITEMS]
+
+
+def test_clear_cache_without_cache_is_harmless(cache_dir):
+    main.clear_cache()
+    main.clear_cache()
+    assert not cache_dir.exists()

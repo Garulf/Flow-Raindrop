@@ -69,7 +69,7 @@ async def query(query: str) -> List[Result]:
 
 @plugin.on_method
 def clear_cache() -> None:
-    shutil.rmtree(CACHE_DIR)
+    shutil.rmtree(CACHE_DIR, ignore_errors=True)
 
 
 @plugin.on_method
