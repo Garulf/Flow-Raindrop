@@ -1,0 +1,16 @@
+{
+  "keyword": "rd",
+  "query": "python",
+  "icon": "../../data/icon.png",
+  "max_results": 1,
+  "selection": 0,
+  "results": [
+    {
+      "title": "No API token found!",
+      "subtitle": "Please enter your Raindrop.io API token in plugin settings.",
+      "icon": "https://github.com/Flow-Launcher/Flow.Launcher/blob/dev/Flow.Launcher/Images/settings.png?raw=true"
+    }
+  ],
+  "query_suggestion": "",
+  "show_caret": false
+}

@@ -1,2 +1,5 @@
-pyflowlauncher[all]==0.8.3.dev0
-hishel==0.0.24
+pyflowlauncher==1.2.2
+hishel==0.0.33
+httpx==0.28.1
+# anyio needs this below Python 3.11; pip skips marker-gated deps when packaging on a newer Python.
+exceptiongroup==1.3.1

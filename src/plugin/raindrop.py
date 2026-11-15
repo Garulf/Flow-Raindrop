@@ -1,7 +1,9 @@
 from enum import Enum
-from typing import Dict, Generator, List, TypedDict
+from pathlib import Path
+from typing import Dict, List, Optional, TypedDict
 
 import hishel
+import httpx
 
 
 BASE_URL = 'https://api.raindrop.io/rest/v1'
@@ -40,13 +42,21 @@ class Item(TypedDict):
 
 class Raindrop:
 
-    def __init__(self, api_token: str, cache_ttl: int = DEFAULT_CACHE_TTL):
+    def __init__(
+        self,
+        api_token: str,
+        cache_ttl: int = DEFAULT_CACHE_TTL,
+        cache_dir: Optional[Path] = None,
+        transport: Optional[httpx.BaseTransport] = None,
+    ):
         self._api_token = api_token
         self._cache_ttl = cache_ttl
+        self._cache_dir = cache_dir
+        self._transport = transport
 
     def _request(self, method: str, endpoint: str, **kwargs) -> Dict:
-        storage = hishel.FileStorage(ttl=self._cache_ttl)
-        with hishel.CacheClient(storage=storage) as client:
+        storage = hishel.FileStorage(base_path=self._cache_dir, ttl=self._cache_ttl)
+        with hishel.CacheClient(storage=storage, transport=self._transport) as client:
             response = client.request(
                 method,
                 f'{BASE_URL}/{endpoint}',
@@ -72,5 +82,5 @@ class Raindrop:
     def search(
         self, search: str,
         collection: CollectionRef = CollectionRef.ALL
-    ) -> Generator[Item, None, None]:
-        yield from self._search(search, collection)['items']
+    ) -> List[Item]:
+        return self._search(search, collection)['items']

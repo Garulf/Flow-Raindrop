@@ -1,0 +1,83 @@
+{% extends "base.md.j2" %}
+
+{% block badges_extra %} [![Downloads](https://img.shields.io/github/downloads/{{ project.owner }}/{{ project.repo }}/total)]({{ project.url }}/releases/latest){% endblock %}
+
+{% block usage %}
+## Features
+
+* **Search every collection.** Queries go to Raindrop.io's own search, across all your collections.
+* **Open with `Enter`.** The bookmark opens in your default browser.
+* **Cached results.** Repeat searches are answered from a local cache for as long as you choose.
+
+## Usage
+
+Type `rd` followed by what you're looking for:
+
+```
+rd python
+```
+
+{{ screenshot("search", alt="Raindrop.io bookmarks in Flow Launcher") }}
+
+### Context menu
+
+Open the context menu (`Shift+Enter` or right-click) on any result to open Raindrop.io in your
+browser or clear the cached search results:
+
+{{ screenshot("context", alt="Flow-Raindrop context menu") }}
+
+## Installation
+
+### Flow Launcher
+
+In Flow Launcher, type:
+
+```
+pm install FlowRaindrop
+```
+
+{{ screenshot("install", alt="Flow Launcher plugin manager installing FlowRaindrop") }}
+
+### Manual installation
+
+Download `Flow-Raindrop-<version>.zip` from the [latest release]({{ project.url }}/releases/latest) and unzip it into
+`%appdata%\FlowLauncher\Plugins`, then restart Flow Launcher.
+
+Pre-releases of the next version are published from the open release PR on the
+[releases page]({{ project.url }}/releases) for testing. Flow Launcher won't offer them as updates.
+
+## Configuration
+
+The plugin needs a Raindrop.io API token. Until you add one, every search shows this:
+
+{{ screenshot("setup", alt="Flow-Raindrop asking for an API token") }}
+
+To get a token:
+
+1. Open [Raindrop.io integrations settings](https://app.raindrop.io/settings/integrations).
+2. Under **For Developers**, choose **Create new app**, give it any name and accept the terms.
+3. Open the app and copy its **Test token**. The client ID and client secret won't work here.
+
+Then open **Settings → Plugins → FlowRaindrop** in Flow Launcher:
+
+| Setting | Default | Description |
+| --- | --- | --- |
+| API Token | | Your Raindrop.io test token |
+| Cache duration | `5 minutes` | How long search results are reused before asking Raindrop.io again |
+
+## Requirements
+
+* Flow Launcher 1.17.0 or newer
+* Python 3.8 or newer, which Flow Launcher can install for you
+
+## Changelog
+
+{{ changelog(3) }}
+
+See [CHANGELOG.md](CHANGELOG.md) for the full history.
+{% endblock %}
+
+{% block screenshots %}{% endblock %}
+{% block install %}{% endblock %}
+{% block contributing %}{% endblock %}
+{% block license %}{% endblock %}

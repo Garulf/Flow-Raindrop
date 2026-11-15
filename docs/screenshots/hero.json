@@ -1,0 +1,43 @@
+{
+  "keyword": "rd",
+  "query": "python",
+  "icon": "../../data/icon.png",
+  "max_results": 4,
+  "selection": 0,
+  "results": [
+    {
+      "title": "asyncio: Asynchronous I/O",
+      "subtitle": "asyncio is a library to write concurrent code using the async/await syntax.",
+      "cover": {
+        "text": "Py",
+        "color": "#3776AB"
+      }
+    },
+    {
+      "title": "Python Packaging User Guide",
+      "subtitle": "Tutorials and guides for installing and distributing Python packages.",
+      "cover": {
+        "text": "PP",
+        "color": "#2E7D5B"
+      }
+    },
+    {
+      "title": "Async IO in Python: A Complete Walkthrough",
+      "subtitle": "How async IO works in Python and when to reach for it.",
+      "cover": {
+        "text": "RP",
+        "color": "#1F2A44"
+      }
+    },
+    {
+      "title": "Python Type Checking Guide",
+      "subtitle": "Gradual typing, mypy and annotations for existing codebases.",
+      "cover": {
+        "text": "TC",
+        "color": "#B4562C"
+      }
+    }
+  ],
+  "query_suggestion": "",
+  "show_caret": true
+}

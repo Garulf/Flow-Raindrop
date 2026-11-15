@@ -1,0 +1,19 @@
+# readwright configuration. All keys are optional; autodetected values are shown.
+# Run `readwright badges` / `readwright blocks` to list badge presets and template blocks.
+template: docs/README.md.j2
+project:
+  name: Flow-Raindrop
+  owner: Garulf
+  repo: Flow-Raindrop
+  tagline: Search your Raindrop.io bookmarks from Flow Launcher.
+  ci_workflow: tests.yml
+banner:
+  image: .github/assets/hero.png
+  alt: Flow-Raindrop hero image
+screenshots:
+  dir: .github/assets
+badges: [ci, github-release]
+donate: [buymeacoffee, github-sponsors]
+donate_handles:
+  buymeacoffee: garulf
+  github-sponsors: Garulf

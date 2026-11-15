@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.14"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+        with:
+          python-version: ${{ matrix.python-version }}
+          activate-environment: true
+      - run: uv pip install -r requirements-dev.txt
+      - run: pytest -v
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: astral-sh/setup-uv@v10.3.3
+      - name: Package
+        id: package
+        run: |
+          zip_path="$(scripts/package.sh "$RUNNER_TEMP/dist")"
+          echo "zip_path=$zip_path" >> "$GITHUB_OUTPUT"
+      - name: Start the packaged plugin on Python 3.8
+        env:
+          ZIP_PATH: ${{ steps.package.outputs.zip_path }}
+        run: |
+          plugin_dir="$RUNNER_TEMP/plugin"
+          unzip -q "$ZIP_PATH" -d "$plugin_dir"
+          printf '%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"query","params":[{"search":"test"},{"api_token":""}]}' \
+            '{"jsonrpc":"2.0","id":2,"method":"close","params":[]}' |
+            uv run --no-project --python 3.8 python -I "$plugin_dir/run.py" > "$RUNNER_TEMP/out.jsonl"
+          jq -e -s 'map(select(.id == 1))[0].result.result[0].Title == "No API token found!"' "$RUNNER_TEMP/out.jsonl"
+
+  readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m pip install readwright==0.5.0
+      - run: readwright check
