@@ -5,8 +5,8 @@
     "Description": "Access Raindrop.io bookmarks with Flow Launcher/Wox",
     "Author": "Garulf",
     "Version": "1.0.0",
-    "Language": "python",
+    "Language": "python_v2",
     "Website": "https://github.com/Garulf/flow-raindrop",
-    "IcoPath": "./icon.png",
+    "IcoPath": "icon.png",
     "ExecuteFileName": "run.py"
 }
